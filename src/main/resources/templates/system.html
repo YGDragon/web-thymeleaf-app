@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Система управления</title>
+        <link th:href="@{/style.css}" rel="stylesheet"/>
+    </head>
+    <body class="container">
+        <h3>Состав АСУТП</h3>
+        <button type="button" class="create-button"><a th:href="@{form}">ДОБАВИТЬ УСТРОЙСТВО</a></button>
+        <header class="header">
+            <p>ID</p>
+            <p>Название устройства</p>
+            <p>Краткое описание</p>
+            <p>Количество единиц</p>
+        </header>
+        <article class="table-body" th:each="dev, iterStat : ${devices}">
+            <p th:text="${dev.id}"></p>
+            <p th:text="${dev.title}"></p>
+            <p th:text="${dev.description}"></p>
+            <p th:text="${dev.quantity}"></p>
+            <div>
+                <button type="button"><a th:href="@{update/{id}(id=${dev.id})}">ОБНОВИТЬ</a></button>
+                <button type="button"><a th:href="@{delete/{id}(id=${dev.id})}">УДАЛИТЬ</a></button>
+            </div>
+        </article>
+    </body>
+</html>
