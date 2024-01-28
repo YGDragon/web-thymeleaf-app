@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Добавить устройство</title>
+        <link th:href="@{/style.css}" rel="stylesheet"/>
+    </head>
+    <body class="container">
+        <h3>Добавление устройства в АСУТП</h3>
+        <form th:action="@{/form}" th:object="${device}" th:method="post">
+            <article class="form-body">
+                <div>
+                    <label>Название устройства:&nbsp;</label>
+                    <input type="text" value="" name="title"/>
+                </div>
+                <div>
+                    <label>Краткое описание:&nbsp;</label>
+                    <input type="text" value="" name="description"/>
+                </div>
+                <div>
+                    <label>Количество единиц:&nbsp;</label>
+                    <input type="text" value="" name="quantity"/>
+                </div>
+            </article>
+            <button type="submit">Добавить</button>
+        </form>
+    </body>
+</html>
